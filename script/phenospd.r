@@ -54,6 +54,8 @@ if (is.null(opt$sumstats)==TRUE & is.null(opt$phenocorr)==TRUE){
 
 if (is.null(opt$sumstats)==FALSE & is.null(opt$phenocorr)==TRUE){
   gwas_data <- read.table(opt$sumstats,header=T,row.names=1)
+  gwas_data$allele_0 <- as.factor(gwas_data$allele_0)
+  gwas_data$allele_1 <- as.factor(gwas_data$allele_1)
   ##estimate phenotypic correlation matrix using metaCCA 
   S_YY = estimateSyy( S_XY = gwas_data)
   ##write the phenotypic correlation matrix into the output file
