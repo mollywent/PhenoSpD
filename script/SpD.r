@@ -37,6 +37,9 @@ Meffold<-M*(1-(L*oldV/M^2))
 if (evals == 1) { 
   oldV <- 0 
   Meffold <- M
+} else {
+  # If evals is greater than 1, skip to the rest of the code
+  next
 }
 
 labelevals<-array(dim=M)
@@ -48,6 +51,9 @@ for(i in 1:length(newevals)) {
   if(newevals[i] < 0) { 
     newevals[i] <- 0
   }
+} else {
+  # If evals is greater than 1, skip to the rest of the code
+  next
 }
 
 newlevals<-cbind(labelevals, newevals)
@@ -58,6 +64,9 @@ Meffnew<-M*(1-(L*newV/M^2))
 if (evals == 1) { 
   newV <- 0 
   Meffnew <- M
+} else {
+  # If evals is greater than 1, skip to the rest of the code
+  next
 }
 
 
@@ -74,6 +83,9 @@ for(i in 1:length(IntLinewevals)) {
   if(IntLinewevals[i] < 1 ) {
     IntLinewevals[i] <- 0
   }
+} else {
+  # If evals is greater than 1, skip to the rest of the code
+  next
 }
 
 NonIntLinewevals <- newevals-floor(newevals)
@@ -190,6 +202,9 @@ if(any(evals < 0)) {
   print(no.dimnames(NewBonferroniLi), quote=F)
   print(no.dimnames(Message), quote=F)
   sink()
+} else {
+  # If evals is greater than 1, skip to the rest of the code
+  next
 }
     
 }    
