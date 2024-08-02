@@ -50,11 +50,11 @@ newevals<-evals
 for(i in 1:length(newevals)) { 
   if(newevals[i] < 0) { 
     newevals[i] <- 0
-  }
-} else {
+  } else {
   # If evals is greater than 1, skip to the rest of the code
   next
 }
+} 
 
 newlevals<-cbind(labelevals, newevals)
 
@@ -80,12 +80,12 @@ for(i in 1:length(IntLinewevals)) {
   if(IntLinewevals[i] >= 1 ) {
     IntLinewevals[i] <- 1
   }
-  if(IntLinewevals[i] < 1 ) {
+  else if(IntLinewevals[i] < 1 ) {
     IntLinewevals[i] <- 0
-  }
-} else {
+  } else {
   # If evals is greater than 1, skip to the rest of the code
   next
+} 
 }
 
 NonIntLinewevals <- newevals-floor(newevals)
